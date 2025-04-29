@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me Portfolio (CDM303A)</title>
+<style type="text/css">
+     /*I'll make the color pallete a bit on the darker side*/
+    /*I'll use three color: black, white, purple */
+    /*I'll use the font stle: Callibre or find something a bit more stylized */
+            
+            * {
+                text-decoration: none;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;  
+            }
+
+            /*Navbar css*/
+            .navbar{
+                background: black; 
+                font-family: calibri; 
+                padding: 15px; 
+                width: 100%;
+            }
+
+            .navdiv {
+                display: flex; 
+                align-items: center; 
+                justify-content: space-between;
+            }
+
+            .namelogo {
+                font-size: 25px; 
+                font-weight: 600; 
+                color: white;
+            }
+
+            li {
+                list-style: none; 
+                display: inline-block;
+            }
+
+            li a {
+                color:white; 
+                font-size: 18px; 
+                font-weight: bold; 
+                margin-right: 25px;
+            }
+
+            /*Main css*/
+            .main{
+                /*Make the color fit the whole background*/
+                min-height: 100vh;
+                width: 100%;
+                display: flex;
+                align-items: first baseline;
+                justify-content: center;
+            }
+
+            /*About Me css*/
+            #contactMe-Container {
+            width: 100%; /* full width background */
+            background: white;
+            padding: 30px 0;
+            display: flex;
+            justify-content: center; /* center the content inside */
+            }
+
+            #contactMe-Container .content{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-direction: column-reverse;
+                width: 90%;
+                max-width: 1200px;
+            }
+
+            #contactMe-Container .content .leftside-contact {
+                width: 25%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 40px;
+            }
+
+            #contactMe-Container .content .rightside-contact{
+                width: 75%;
+                margin-left: 75px;
+            }
+
+            .leftside-contact .details img {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 8px;
+                margin-top: 12px;
+            }
+           
+            leftside-contact .details {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+
+            #contactMe-Container .content .title {
+                font-size: 30px;
+                font-family: calibri; 
+                font-weight: bold;
+            }
+
+            p{
+                font-size: 20px;
+                font-family: calibri; 
+            }
+
+            .content .rightside-contact .ContactMe-Text {
+                font-size: 50px;
+                font-family: Calibri;
+                font-weight: 600;
+                color: #3e2093;
+            }
+
+            .rightside-contact .input-box {
+                height: 50px;
+                width: 100%;
+                margin: 12px 0;
+            }
+
+            .rightside-contact .input-box input, 
+            .rightside-contact .input-box textarea {
+                height: 100%;
+                width: 100%;
+                font-size: 16px;
+                font-weight: 500;
+                border: none;
+                border-radius: 6px;
+                background: #F0F1f8;
+                padding: 0 15px;
+                font-family: Cambria;
+            }
+
+            .rightside-contact .Message{
+                min-height: 110px;
+                margin-top: 6px;
+                font-family: Calibri;
+            }
+            
+            .rightside-contact .button{
+                display: inline-block;
+                margin-top: 12px;
+            }
+            .rightside-contact .button input[type="submit"]{
+                color: white;
+                font-size: 18px;
+                outline: none;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 6px;
+                background: #3e2093;
+            }
+
+            .button input[type="submit"]:hover{
+                background: #5029bc;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+            /*Solo Project css*/
+
+            .slider-wrapper {
+                position: relative;
+                max-width: 100%;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+
+            .slider {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                width: 100%;
+                height: auto;
+                scrollbar-width: none; /* Firefox */
+            }
+
+            .slider::-webkit-scrollbar {
+                display: none; /* Chrome */
+            }
+
+            .slide {
+                flex: 0 0 100%;
+                scroll-snap-align: start;
+                position: relative;
+            }
+
+            .slide img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            .overlay { 
+                position: absolute;  
+                bottom: 0; /* position it at the bottom of the image */  
+                left: 0; 
+                width: 100%;
+                padding: 15px;
+                background: rgba(0, 0, 0, 0.6); /* semi-transparent dark background */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+                box-sizing: border-box;
+            }
+
+            .play-game {
+                background-color: #3e2093;
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+
+            .overlay a img {
+                width: 32px;
+                height: 32px;
+            }
+            
+            /* Adds Arrows */
+            .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 0 0.5rem;
+            cursor: pointer;
+            z-index: 2;
+            }
+
+        .arrow.left {
+        left: 0.5rem;
+        }
+
+        .arrow.right {
+            right: 0.5rem;
+        }
+
+</style>
+</head>
+<body>
+    <!--This is the navigator bar-->
+    <div class="page-wrapper">
+    <nav class="navbar">
+        <div class="navdiv">
+            <h1 class="namelogo">Kenbe Yeung</h1>
+            <ul>
+                <li><a href="#contactMe-Container">Contact Me</a></li>
+                <li><a href="#Solo-container">Solo Projects</a></li>
+                <li><a href="#Group-container">Group Projects</a></li>
+                <li><a href="#">About</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!--This is the contact me part-->
+    <!--The background would be white with purple outline-->
+    <!--Add First & Last Name, Email, and message -->
+    <div class="Main">
+                <div id="contactMe-Container">  
+            <div class="content">
+
+                <div class="leftside-contact">
+                    <!--This will link to my other profiles or where they can find me-->
+                    <div class="github details">
+                        <a href="https://github.com/KY-04">
+                            <img src="images/gitlogo.png" alt="github logo">
+                            <div class="title">Github</div>
+                        </a>
+                    </div>
+
+                    <div class="LinkedIn details">
+                        <a href="https://www.linkedin.com/in/kenbe-yeung/">
+                            <img src="images/LinkedIn.png" alt="LinkedIn logo">
+                            <div class="title">LinkedIn</div>
+                        </a>
+                    </div>
+
+                    <div class="itch details">
+                        <a href="https://kai-030.itch.io/">
+                            <img src="images/itch.png" alt="Itch logo">
+                            <div class="title">Itch.io</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="rightside-contact">
+                    <div class="ContactMe-Text">Contact Me</div>
+                    <p>Hello! If you enjoyed my projects and what to get in touch.
+                       Please message me here. 
+                    </p>
+
+                <form action="https://api.web3forms.com/submit" method="POST">
+                       <input type="hidden" name="access_key" value="fba82e9f-f2fa-49ce-ba06-a499917fd8d5">
+                    <div class="Fullname input-box">
+                        <input type="text" placeholder="Enter Your Full Name" required>
+                    </div>
+                    <div class="EmailAddress input-box">
+                        <input type="text" placeholder="Enter Your Email Address" required>
+                    </div>
+                    <div class="PhoneNumber input-box">
+                        <input type="text" placeholder="Enter Your Phone Number" required>
+                    </div>
+                    <div class="Message input-box">
+                        <textarea name="Message" placeholder="Please Type Your Message" required></textarea>
+                    </div>
+                    <div class="button">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+
+        <!--This is the Solo Projects I have done in the past-->
+        <!--I'll add two personal projects-->
+        <!--Add button on top of images to make it play the embedded game-->
+        <!--Add button to make it be able to link to Youtube and itch-->   
+        <section id="Solo-container">
+            <div class="slider-wrapper">
+              
+              <!-- Arrows -->
+              <button class="arrow left" onclick="scrollSlider(-1)">&#10094;</button>
+              <button class="arrow right" onclick="scrollSlider(1)">&#10095;</button>
+          
+              <div class="slider" id="soloSlider">
+                <div class="slide">
+                  <img src="images/6.png" alt="Space Evader Game" />
+                  <div class="overlay">
+                    <a href="https://kai-030.itch.io/pong-cdm303a" target="_blank">
+                        <button class="play-game">Play Game</button>
+                        </a>
+                    <a href="https://youtu.be/52Q6USwp5Sc" target="_blank">
+                      <img src="images/Youtube.png" alt="YouTube">
+                    </a>
+                  </div>
+                </div>
+          
+                <div class="slide">
+                  <img src="images/7.png" alt="Pong Game" />
+                  <div class="overlay">
+                    <a href="https://kai-030.itch.io/pong-cdm303a" target="_blank">
+                        <button class="play-game">Play Game</button>
+                     </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+    <!--This is the Group Projects I have done in the past-->
+     <!--I'll add three personal projects-->
+    <section id="Group-container">
+     
+    </section>
+
+     <!--This is the about me page-->
+     <!--There will be links about my other portfolio-->    
+    </div>
+    </div>
+
+   <script>
+  let currentIndex = 0;
+const slider = document.getElementById('soloSlider');
+const slides = document.querySelectorAll('.slide');
+
+function scrollSlider(direction) {
+  currentIndex = Math.min(Math.max(currentIndex + direction, 0), slides.length - 1);
+  const slideWidth = slides[0].offsetWidth;
+  slider.scrollTo({
+    left: currentIndex * slideWidth,
+    behavior: 'smooth'
+  });
+}
+</script>
+</body>
+</html>
