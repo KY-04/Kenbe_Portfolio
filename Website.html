@@ -14,6 +14,7 @@
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;  
+                background-color: black
             }
 
             /*Navbar css*/
@@ -74,35 +75,15 @@
                 flex-direction: column-reverse;
                 width: 90%;
                 max-width: 1200px;
+
             }
 
-            #contactMe-Container .content .leftside-contact {
-                width: 25%;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                gap: 40px;
-            }
 
             #contactMe-Container .content .rightside-contact{
                 width: 75%;
                 margin-left: 75px;
-            }
 
-            .leftside-contact .details img {
-                width: 50px;
-                height: 50px;
-                margin-bottom: 8px;
-                margin-top: 12px;
             }
-           
-            leftside-contact .details {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
 
             #contactMe-Container .content .title {
                 font-size: 30px;
@@ -196,7 +177,7 @@
                 position: relative;
             }
 
-            .slide img {
+            img {
                 width: 100%;
                 height: auto;
                 object-fit: cover;
@@ -262,10 +243,9 @@
             <h1 class="namelogo">Kenbe Yeung</h1>
             <ul>
                 <li><a href="#contactMe-Container">Contact Me</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#Solo-container">Solo Projects</a></li>
                 <li><a href="#Group-container">Group Projects</a></li>
-                <li><a href="#">About</a></li>
-
             </ul>
         </div>
     </nav>
@@ -276,31 +256,6 @@
     <div class="Main">
                 <div id="contactMe-Container">  
             <div class="content">
-
-                <div class="leftside-contact">
-                    <!--This will link to my other profiles or where they can find me-->
-                    <div class="github details">
-                        <a href="https://github.com/KY-04">
-                            <img src="images/gitlogo.png" alt="github logo">
-                            <div class="title">Github</div>
-                        </a>
-                    </div>
-
-                    <div class="LinkedIn details">
-                        <a href="https://www.linkedin.com/in/kenbe-yeung/">
-                            <img src="images/LinkedIn.png" alt="LinkedIn logo">
-                            <div class="title">LinkedIn</div>
-                        </a>
-                    </div>
-
-                    <div class="itch details">
-                        <a href="https://kai-030.itch.io/">
-                            <img src="images/itch.png" alt="Itch logo">
-                            <div class="title">Itch.io</div>
-                        </a>
-                    </div>
-                </div>
-
                 <div class="rightside-contact">
                     <div class="ContactMe-Text">Contact Me</div>
                     <p>Hello! If you enjoyed my projects and what to get in touch.
@@ -328,6 +283,17 @@
                 </div>
             </div>
         </div>
+
+    </section>
+
+    <!--This is the about me page-->
+
+    <section id="about">
+        <img src="images/About Me.png" alt="about me">
+    </section>
+    <!--There will be links about my other portfolio-->    
+   </div>
+   </div>
 
         <!--This is the Solo Projects I have done in the past-->
         <!--I'll add two personal projects-->
@@ -367,14 +333,36 @@
 
     <!--This is the Group Projects I have done in the past-->
      <!--I'll add three personal projects-->
-    <section id="Group-container">
      
-    </section>
+    <section id="Group-container">
+        <section id="Solo-container">
+            <div class="slider-wrapper">
+              
+              <!-- Arrows -->
+              <button class="arrow left" onclick="scrollSlider(-1)">&#10094;</button>
+              <button class="arrow right" onclick="scrollSlider(1)">&#10095;</button>
+          
+              <div class="slider" id="soloSlider">
+                <div class="slide-g1">
+                  <img src="images/8.png" alt="Space Evader Game" />
+                  <div class="overlay">
+                  </div>
+                </div>
+          
+                <div class="slide-g2">
+                  <img src="images/9.png" alt="Pong Game" />
+                  <div class="overlay">
+                  </div>
 
-     <!--This is the about me page-->
-     <!--There will be links about my other portfolio-->    
-    </div>
-    </div>
+                  <div class="slide-g3">
+                    <img src="images/10.png" alt="Pong Game" />
+                    <div class="overlay">
+                    </div>
+                </div>
+              </div>
+            </div>
+          </section>
+     
 
    <script>
   let currentIndex = 0;
