@@ -14,6 +14,9 @@
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;  
+            }
+
+            body{
                 background-color: black
             }
 
@@ -23,6 +26,9 @@
                 font-family: calibri; 
                 padding: 15px; 
                 width: 100%;
+                position: fixed;
+                top: 0;
+                z-index: 1000;
             }
 
             .navdiv {
@@ -47,6 +53,12 @@
                 font-size: 18px; 
                 font-weight: bold; 
                 margin-right: 25px;
+            }
+
+            li a:hover{
+                color: #5029bc;
+                transition: all 0.3s ease;
+                cursor: pointer;
             }
 
             /*Main css*/
@@ -225,13 +237,13 @@
             z-index: 2;
             }
 
-        .arrow.left {
-        left: 0.5rem;
-        }
+            .arrow.left {
+                left: 0.5rem;
+             }
 
-        .arrow.right {
-            right: 0.5rem;
-        }
+            .arrow.right {
+               right: 0.5rem;
+            }
 
 </style>
 </head>
@@ -242,49 +254,14 @@
         <div class="navdiv">
             <h1 class="namelogo">Kenbe Yeung</h1>
             <ul>
-                <li><a href="#contactMe-Container">Contact Me</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#Solo-container">Solo Projects</a></li>
                 <li><a href="#Group-container">Group Projects</a></li>
+                <li><a href="#contactMe-Container">Contact Me</a></li>
+
             </ul>
         </div>
     </nav>
-
-    <!--This is the contact me part-->
-    <!--The background would be white with purple outline-->
-    <!--Add First & Last Name, Email, and message -->
-    <div class="Main">
-                <div id="contactMe-Container">  
-            <div class="content">
-                <div class="rightside-contact">
-                    <div class="ContactMe-Text">Contact Me</div>
-                    <p>Hello! If you enjoyed my projects and what to get in touch.
-                       Please message me here. 
-                    </p>
-
-                <form action="https://api.web3forms.com/submit" method="POST">
-                       <input type="hidden" name="access_key" value="fba82e9f-f2fa-49ce-ba06-a499917fd8d5">
-                    <div class="Fullname input-box">
-                        <input type="text" placeholder="Enter Your Full Name" required>
-                    </div>
-                    <div class="EmailAddress input-box">
-                        <input type="text" placeholder="Enter Your Email Address" required>
-                    </div>
-                    <div class="PhoneNumber input-box">
-                        <input type="text" placeholder="Enter Your Phone Number" required>
-                    </div>
-                    <div class="Message input-box">
-                        <textarea name="Message" placeholder="Please Type Your Message" required></textarea>
-                    </div>
-                    <div class="button">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-                </div>
-            </div>
-        </div>
-
-    </section>
 
     <!--This is the about me page-->
 
@@ -335,48 +312,79 @@
      <!--I'll add three personal projects-->
      
     <section id="Group-container">
-        <section id="Solo-container">
+        <section id="Group-container">
             <div class="slider-wrapper">
               
               <!-- Arrows -->
-              <button class="arrow left" onclick="scrollSlider(-1)">&#10094;</button>
-              <button class="arrow right" onclick="scrollSlider(1)">&#10095;</button>
+              <button class="arrow left" onclick="scrollGroupSlider(-1)">&#10094;</button>
+              <button class="arrow right" onclick="scrollGroupSlider(1)">&#10095;</button>
           
-              <div class="slider" id="soloSlider">
-                <div class="slide-g1">
-                  <img src="images/8.png" alt="Space Evader Game" />
-                  <div class="overlay">
-                  </div>
+              <div class="slider" id="GroupSlider">
+                <div class="slide">
+                  <img src="images/8.png" alt="P-1" />
                 </div>
           
-                <div class="slide-g2">
-                  <img src="images/9.png" alt="Pong Game" />
-                  <div class="overlay">
+                <div class="slide">
+                  <img src="images/9.png" alt="P-2" />
                   </div>
 
-                  <div class="slide-g3">
-                    <img src="images/10.png" alt="Pong Game" />
-                    <div class="overlay">
-                    </div>
+                  <div class="slide">
+                    <img src="images/10.png" alt="P-3" />
                 </div>
               </div>
             </div>
           </section>
      
+              <!--This is the contact me part-->
+    <!--The background would be white with purple outline-->
+    <!--Add First & Last Name, Email, and message -->
+    <div class="Main">
+        <div id="contactMe-Container">  
+    <div class="content">
+        <div class="rightside-contact">
+            <div class="ContactMe-Text">Contact Me</div>
+            <p>Hello! If you enjoyed my projects and what to get in touch.
+               Please message me if you want to work with me! 
+            </p>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+               <input type="hidden" name="access_key" value="fba82e9f-f2fa-49ce-ba06-a499917fd8d5">
+            <div class="Fullname input-box">
+                <input type="text" placeholder="Enter Your Full Name" required>
+            </div>
+            <div class="EmailAddress input-box">
+                <input type="text" placeholder="Enter Your Email Address" required>
+            </div>
+            <div class="PhoneNumber input-box">
+                <input type="text" placeholder="Enter Your Phone Number" required>
+            </div>
+            <div class="Message input-box">
+                <textarea name="Message" placeholder="Please Type Your Message" required></textarea>
+            </div>
+            <div class="button">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
 
    <script>
   let currentIndex = 0;
-const slider = document.getElementById('soloSlider');
-const slides = document.querySelectorAll('.slide');
+  const slides = document.querySelectorAll('.slide');
 
 function scrollSlider(direction) {
-  currentIndex = Math.min(Math.max(currentIndex + direction, 0), slides.length - 1);
-  const slideWidth = slides[0].offsetWidth;
-  slider.scrollTo({
-    left: currentIndex * slideWidth,
-    behavior: 'smooth'
-  });
-}
+    const slider = document.getElementById("soloSlider");
+    const slideWidth = slider.querySelector(".slide").offsetWidth;
+    slider.scrollBy({ left: direction * slideWidth, behavior: "smooth" });
+  }
+
+  function scrollGroupSlider(direction) {
+    const slider = document.getElementById("GroupSlider");
+    const slideWidth = slider.querySelector(".slide").offsetWidth;
+    slider.scrollBy({ left: direction * slideWidth, behavior: "smooth" });
+  }
 </script>
 </body>
 </html>
